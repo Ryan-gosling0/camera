@@ -1,13 +1,12 @@
 <?php
-session_start(); // Essential: Start session first
+session_start();
 include("../config/db.php");
-$error = ""; // Initialize error variable properly
+$error = "";
 
 if(isset($_POST['login'])){
     $email = $_POST['email'];
     $pass = $_POST['password'];
     
-    // Secure prepared statement to prevent SQL injection
     $stmt = $conn->prepare("SELECT * FROM utilisateur WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
@@ -28,6 +27,7 @@ if(isset($_POST['login'])){
 <html>
 <head>
     <title>Sign In</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="icon" type="image/x-icon" href="../assets/img/slogo.jpg">
 </head>

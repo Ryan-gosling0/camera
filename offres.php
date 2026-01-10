@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 if (!isset($_SESSION['user'])) {
@@ -21,11 +20,12 @@ if (!isset($_SESSION['user'])) {
 
 <div class="main">
     <div class="topbar">
-        <div style="display:flex;align-items:center;gap:10px;">
-            <img src="assets/img/slogo.jpg" width="200" height="200" style="border-radius:30%;">
+        <div class="user-info">
+            <img src="assets/img/slogo.jpg" class="user-avatar" alt="User Avatar">
             <span>
                 Welcome <strong><?= $_SESSION['user']['prenom']; ?></strong>
             </span>
+            <a href="cart.php" class="view-cart-btn" style="margin-left:15px; background: #2a5298; color: white; padding: 5px 10px; border-radius: 5px;">View Cart</a>
         </div>
     </div>
 
@@ -35,7 +35,7 @@ if (!isset($_SESSION['user'])) {
                                         <img id="nextImage" src="assets/img/kit.jpg" alt="">
                                 </div>
                                 <h3>installation complete de cameras de surveillance et systeme d'alarme 24/7 maintenance gratuite : 2300dt</h3>
-                                <a href="contacts.php"><button>contact</button></a>
+                                <button onclick="addToCart('offer1', 'Full Installation Offer', 2300)">Add to Cart</button>
                                 <script>
                                 const images = ["assets/img/offre.jpg","assets/img/kit.jpg","assets/img/install.jpg"];
                                 let index = 0;
@@ -74,6 +74,27 @@ if (!isset($_SESSION['user'])) {
 
 
                                 
+                                
+                                </script>
+                                <script>
+                                    function addToCart(id, name, price) {
+                                        const formData = new FormData();
+                                        formData.append('action', 'add');
+                                        formData.append('id', id);
+                                        formData.append('name', name);
+                                        formData.append('price', price);
+
+                                        fetch('cart_actions.php', {
+                                            method: 'POST',
+                                            body: formData
+                                        })
+                                        .then(response => response.json())
+                                        .then(data => {
+                                            if (data.status === 'success') {
+                                                alert('Added to cart! Total items: ' + data.count);
+                                            }
+                                        });
+                                    }
                                 </script>
                 
             </div>

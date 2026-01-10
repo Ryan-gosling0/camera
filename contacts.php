@@ -9,7 +9,6 @@ include("config/db.php");
 ?>
 <link rel="icon" type="image/x-icon" href="assets/img/slogo.jpg">
 <?php
-/* DATABASE DATA */
 $count = $conn->query("SELECT COUNT(*) AS total FROM contact")
               ->fetch_assoc()['total'];
 
@@ -29,8 +28,8 @@ $contacts = $conn->query("SELECT * FROM contact ORDER BY date_creation DESC");
 
 <div class="main">
     <div class="topbar">
-        <div style="display:flex;align-items:center;gap:10px;">
-            <img src="assets/img/slogo.jpg" width="200" height="200" style="border-radius:30%;">
+        <div class="user-info">
+            <img src="assets/img/slogo.jpg" class="user-avatar" alt="User Avatar">
             <span>
                 Welcome <strong><?= $_SESSION['user']['prenom']; ?></strong>
             </span>
@@ -40,7 +39,6 @@ $contacts = $conn->query("SELECT * FROM contact ORDER BY date_creation DESC");
     <div class="content">
         <h2>Contacts</h2>
 
-        <!-- CARD WITH REAL COUNT -->
         <div class="cards">
             <div class="card">
                 <h3>Total Contacts</h3>
@@ -50,7 +48,6 @@ $contacts = $conn->query("SELECT * FROM contact ORDER BY date_creation DESC");
 
         <br>
 
-        <!-- CONTACT LIST FROM DATABASE -->
         <table>
             <tr>
                 <th>Email</th>

@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 if (!isset($_SESSION['user'])) {
@@ -21,13 +20,16 @@ if (!isset($_SESSION['user'])) {
 
 <div class="main">
     <div class="topbar">
-        <div style="display:flex;align-items:center;gap:10px;">
-            <img src="assets/img/slogo.jpg" width="200" height="200" style="border-radius:30%;">
+        <div class="user-info">
+            <img src="assets/img/slogo.jpg" class="user-avatar" alt="User Avatar">
+            <span>
                 Welcome <strong>
                     <?= $_SESSION['user']['prenom'].' '.$_SESSION['user']['nom']; ?>
                 </strong>
             </span>
-            <h4 style="margin-left:250px;">numéro de téléphone: <strong>+216 58885966</strong> facebook: <strong> smartprotect</strong></h4>
+        </div>
+        <div class="contact-details">
+            <h4>numéro de téléphone: <strong>+216 58885966</strong> facebook: <strong> smartprotect</strong></h4>
         </div>
     </div>
      <div class="wa-chat" onclick="openWA()">
@@ -44,19 +46,19 @@ function openWA() {
         <div class="cards">
             
             <div class="card">
-                <img src="assets/img/alarme.png" width="150" height="100" alt="">
+                <img src="assets/img/alarme.png" alt="" style="height:100px; object-fit:contain;">
                 <h3>deivce dra chnouwa: $2500</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse laboriosam molestiae, voluptas, minus soluta sed saepe exercitationem excepturi quibusdam deserunt repudiandae delectus. Ea sint fugiat illum voluptates veniam, vitae debitis.</p>
                 <a href="devis.php"><button>commander</button></a>
             </div>
             <div class="card">
-                <img src="assets/img/kit.jpg" width="200" height="100" alt="">
+                <img src="assets/img/kit.jpg" alt="">
                 <h3>kit : 999dt</h3>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum officiis iure neque cupiditate rerum fugiat unde, nam culpa libero, soluta corporis officia velit maxime reprehenderit nobis deserunt atque enim eaque?</p>
                 <a href="devis.php"><button>commander</button></a>
             </div>
             <div class="card">
-                <img src="assets/img/detecteur.jpg" width="200" height="100" alt="">
+                <img src="assets/img/detecteur.jpg" alt="">
                 <h3>kit : 2300dt</h3>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum officiis iure neque cupiditate rerum fugiat unde, nam culpa libero, soluta corporis officia velit maxime reprehenderit nobis deserunt atque enim eaque?</p>
                 <a href="devis.php"><button>commander</button></a>
@@ -113,20 +115,20 @@ function openWA() {
 
             <div class="cards" style="margin-top:40px;">
                 <div class="card">
-                <img src="assets/img/install.jpg" width="100" height="100" alt="">
+                <img src="assets/img/install.jpg" alt="">
                 <h3>kit : 2300dt</h3>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum officiis iure neque cupiditate rerum fugiat unde, nam culpa libero, soluta corporis officia velit maxime reprehenderit nobis deserunt atque enim eaque?</p>
                 <a href="devis.php"><button>commander</button></a>
                 </div>
 
                 <div class="card">
-                <img src="assets/img/install.jpg" width="100" height="100" alt="">
+                <img src="assets/img/install.jpg" alt="">
                 <h3>kit : 2300dt</h3>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum officiis iure neque cupiditate rerum fugiat unde, nam culpa libero, soluta corporis officia velit maxime reprehenderit nobis deserunt atque enim eaque?</p>
                 <a href="devis.php"><button>commander</button></a>
                 </div>
                 <div class="card">
-                <img src="assets/img/install.jpg" width="100" height="100" alt="">
+                <img src="assets/img/install.jpg" alt="">
                 <h3>kit : 2300dt</h3>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum officiis iure neque cupiditate rerum fugiat unde, nam culpa libero, soluta corporis officia velit maxime reprehenderit nobis deserunt atque enim eaque?</p>
                 <a href="devis.php"><button>commander</button></a>
